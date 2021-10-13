@@ -4,8 +4,6 @@ import FileContent from "./FileContent";
 import {useState} from "react";
 import {fetchFileContents} from "../reducers/fetchGists";
 
-//gistsList all of the gist, has {files: {"test1.js": "" , test2.py":""}
-
 const getGistFiles = (gistFileObj) =>{
     let keys = Object.keys(gistFileObj);
     return keys.map(file => {

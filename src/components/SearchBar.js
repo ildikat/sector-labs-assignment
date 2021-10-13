@@ -10,7 +10,7 @@ function SearchBar() {
     const dispatch = useDispatch();
     useEffect(()=> {
         fetchAllGists(userName, result => dispatch(updateGists(result)));
-    },[submitClicked, userName, dispatch]);
+    },[submitClicked]);
 
     const handleSearchClick = (e, newUsername) => {
         e.preventDefault();
