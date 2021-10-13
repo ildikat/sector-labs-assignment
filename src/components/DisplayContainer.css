@@ -5,5 +5,20 @@
 }
 
 .list-element{
-    padding: 2em;
+    padding: 0.1em 0.5em;
+}
+
+.button-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button:disabled{
+   background-color: var(--grey);
+    color: var(--dark-grey);
+}
+
+button{
+    background-color: var(--blue);
 }

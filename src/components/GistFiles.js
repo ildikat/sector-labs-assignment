@@ -30,12 +30,12 @@ function GistFiles({gistFileObj}) {
     }
     return (
         <div>
-            <h2>Contained files:</h2>
+            <h4>Contained files:</h4>
             <div className={"files-container"}>
                 {getGistFileComponents(gistFileObj, handleClickedFile)}
             </div>
             {(selectedFileName.length === 0)
-                ? (<h4>Click on a file to see it's content</h4>)
+                ? (<p>Click on a file to see it's content</p>)
                 : (<div>
                     <h4>{selectedFileName}'s content:</h4>
                     <FileContent content={selectedFileContent}/>

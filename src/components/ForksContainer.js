@@ -24,7 +24,7 @@ function ForksContainer({gistId}) {
 
     return (
         <div>
-            <h2 className={"users-header"}>Users who forked it</h2>
+            <h4 className={"users-header"}>Users who forked it:</h4>
             <div className={"user-container"}>
                 {getUserElements(getUserObject(forkedUsersList))}
             </div>
