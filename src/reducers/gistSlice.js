@@ -9,10 +9,10 @@ export const gistSlice = createSlice({
     reducers: {
         updateGists: (state, newGists) => {
             state.value = newGists.payload;
-            state.error = "";
+            state.error = ""
         },
         updateError: (state, error) => {
-            state.error(error);
+            state.error= error.payload;
         }
     }
 });

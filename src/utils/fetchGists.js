@@ -10,12 +10,15 @@ export const fetchAllGists = (userName, callback, errorCallback) => {
     }
 };
 
-export const fetchFileContents = (url, callback) => {
+export const fetchFileContents = (url, callback, errorCallback) => {
     axios.get(url)
         .then(res => {
             callback(res.data)
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err);
+            errorCallback(err.response.data.message)
+        })
 }
 
 export const fetchForked = (id, callback, errorCallback) => {
@@ -25,7 +28,7 @@ export const fetchForked = (id, callback, errorCallback) => {
                 callback(res.data)
             })
             .catch(err => {
-                errorCallback(err);
+                errorCallback(err.response.data.message);
             });
     }
 }
