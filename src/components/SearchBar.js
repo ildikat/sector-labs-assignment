@@ -11,8 +11,10 @@ function SearchBar() {
 
     const handleSearchClick = (e, newUsername) => {
         e.preventDefault();
-        dispatch(changeUsername(newUsername));
-        fetchAllGists(userName, result => dispatch(updateGists(result)));
+        fetchAllGists(userName, result => {
+            dispatch(updateGists(result));
+            dispatch(changeUsername(newUsername));
+        });
     }
 
     return (
