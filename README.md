@@ -2,9 +2,13 @@
 
 This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
+# Enchancements, optimizations
 The application uses Redux to store the searched use, gist lists in a global store. This makes it possible to reach the stored elements without the need to send them down the tree. This also reduces the calls to the API, as we only fetch them once, and the child elements use that data.
 
-The Github API has a number of maximum calls per an hour. This requires attention, as this number was exceeded while testing. The application needs to be careful with the calls and reduce them, therefore, instead of showing all gists at once, a pagination was created where only 5 gists are displayed. The rest of the gists can be seen by navigating with two buttons: "prev" and "next".
+
+The application should minimize the calls to the GitHub API, because this affects the loading time of tha application, and the API has a number of maximum calls per an hour. The application needs to make minimum calls as needed. Regarding this problem, the application called the API with each letter the user typed in the search input. This resulted in multiple calls when it didn't need to. The solution was to only make the API call when the user pressed a "Search" button.
+
+Another problem encountered with the number of calls was when displaying the gists. With each gist the application needs to make a call to find out the last forks. Instead of showing all gists at once, a pagination was created where only 5 gists are displayed. The rest of the gists can be seen by navigating with two buttons: "prev" and "next". This minimizes the calls sent at once.
 
 ## Available Scripts
 
