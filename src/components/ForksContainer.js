@@ -51,7 +51,7 @@ const FORKS = [
 ];
 
 const getUserElements = (users) =>{
-    return users.map(user => <User avatar_url={user.avatar_url} username={user.login}/>);
+    return users.map(user => <User key={user.id} avatar_url={user.avatar_url} username={user.login}/>);
 }
 
 const getUserObject = () =>{
@@ -61,7 +61,7 @@ const getUserObject = () =>{
 function ForksContainer(props) {
     return (
         <div>
-            <h2>User who forked it</h2>
+            <h2>Users who forked it</h2>
             <div>
                 {getUserElements(getUserObject())}
             </div>

@@ -1,7 +1,8 @@
 # Sector Labs Gists Displayer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
+THe project uses Bootstrap for the Badges of the file language.
 ## Available Scripts
 
 In the project directory, you can run:
@@ -23,3 +24,4 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+

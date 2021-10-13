@@ -3,9 +3,9 @@ import GistFiles from "./GistFiles";
 import ForksContainer from "./ForksContainer";
 
 const getGistListElement = (gistsList) => gistsList.map(element =>
-    <div className={"solid-border"}>
-        <GistFiles key={element.id} gistFiles={element.files}/>
-        <ForksContainer/>
+    <div className={"solid-border"} key={element.id}>
+        <GistFiles gistFileObj={element.files}/>
+        <ForksContainer />
     </div>
 );
 
