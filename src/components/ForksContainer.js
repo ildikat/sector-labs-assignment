@@ -31,7 +31,7 @@ const FORKS = [
             "login": "octocat",
             "id": 1,
             "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "avatar_url": "https://picsum.photos/200/300",
             "gravatar_id": "",
             "url": "https://api.github.com/users/octocat",
             "html_url": "https://github.com/octocat",

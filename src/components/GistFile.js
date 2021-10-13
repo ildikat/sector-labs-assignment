@@ -1,8 +1,9 @@
 import React from 'react';
+import './GistFile.css';
 
-function GistFile({filename, language}) {
+function GistFile({onClick,filename, language}) {
     return (
-        <div>
+        <div className={"clickable"} onClick={onClick}>
             <span>{filename}</span> <span className="badge">{language}</span>
         </div>
     );
