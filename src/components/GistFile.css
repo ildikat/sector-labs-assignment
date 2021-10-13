@@ -1,4 +1,9 @@
 .clickable {
     cursor: pointer;
     font-weight: bold;
+    transition: font-size 0.5s;
+}
+
+.clickable:hover {
+    font-size: medium;
 }

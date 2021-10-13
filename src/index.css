@@ -3,7 +3,7 @@
     --blue: #3285a8;
     --grey: #5a5a5c;
     --dark-grey: #393a3b;
-
+    --red: #cc3300;
 }
 
 body {
@@ -22,6 +22,7 @@ code {
 
 .solid-border {
     border-style: solid;
+    border-radius: 8px;
     margin: 5px;
     padding: 5px;
 }

@@ -2,6 +2,8 @@
 
 This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
+The for the badge style Bootstrap was used.
+
 # Enchancements, optimizations
 The application uses Redux to store the searched use, gist lists in a global store. This makes it possible to reach the stored elements without the need to send them down the tree. This also reduces the calls to the API, as we only fetch them once, and the child elements use that data.
 

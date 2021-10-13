@@ -2,3 +2,7 @@
     margin: 0.5em;
     text-align: center;
 }
+
+.error {
+    color: var(--red);
+}

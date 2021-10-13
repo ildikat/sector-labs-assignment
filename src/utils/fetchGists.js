@@ -6,7 +6,7 @@ export const fetchAllGists = (userName, callback, errorCallback) => {
     if (userName) {
         axios.get(`${API_URL}/users/${userName}/gists`)
             .then(res => callback(res.data))
-            .catch(err => console.log(err))
+            .catch(err => errorCallback(err.response.data.message))
     }
 };
 
@@ -18,12 +18,14 @@ export const fetchFileContents = (url, callback) => {
         .catch(err => console.log(err))
 }
 
-export const fetchForked = (id, callback) => {
+export const fetchForked = (id, callback, errorCallback) => {
     if (id) {
         axios.get(`${API_URL}/gists/${id}/forks?per_page=3`)
             .then(res => {
                 callback(res.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                errorCallback(err);
+            });
     }
 }

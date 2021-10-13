@@ -7,6 +7,7 @@ import ForksContainer from "./ForksContainer";
 import {gists} from "../reducers/gistSlice";
 import {getCurrentPageItems} from "../utils/getPages";
 import {ITEMS_PER_PAGE} from "../constants";
+import Button from "./common/Button";
 
 const getGistListElement = (gistsList) => gistsList.map(element =>
     <div className={"solid-border list-element"} key={element.id}>
@@ -19,6 +20,7 @@ function DisplayContainer(props) {
     const username = useSelector(searchedUsername);
     const gistsList = useSelector(gists);
     const [currentPage, setCurrentPage] = useState(1);
+    const maxPages = Math.ceil(gistsList.length / ITEMS_PER_PAGE);
 
     const handlePrevPage = () => {
         if (currentPage > 1) {
@@ -27,7 +29,7 @@ function DisplayContainer(props) {
     }
 
     const handleNextPage = () => {
-        if (currentPage < Math.floor(gistsList.length / ITEMS_PER_PAGE)) {
+        if (currentPage < Math.floor(maxPages)) {
             setCurrentPage(prevState => prevState + 1)
         }
     }
@@ -37,18 +39,18 @@ function DisplayContainer(props) {
             {(username.length > 0) ?
                 (
                     <div className={"display-container"}>
-                        <h2>{username}'s public gists:</h2>
+                        <p>{username}'s public gists:</p>
                         {getGistListElement(getCurrentPageItems(currentPage, gistsList, ITEMS_PER_PAGE))}
                         <div className={"button-container"}>
-                            <button onClick={handlePrevPage} disabled={currentPage <= 1}>Prev page</button>
-                            <p>{currentPage}</p>
-                            <button onClick={handleNextPage}
-                                    disabled={currentPage >= Math.floor(gistsList.length / ITEMS_PER_PAGE)}>Next page
-                            </button>
+                            <Button onClick={handlePrevPage} disabled={currentPage <= 1} text={"Prev page"}/>
+                            <p>{currentPage}/ {maxPages}</p>
+                            <Button onClick={handleNextPage}
+                                    disabled={currentPage >= Math.floor(maxPages)}
+                                    text={"Next page"}/>
                         </div>
                     </div>
                 )
-                : (<h2>Enter someone's username to see the results</h2>)
+                : (<h2> Enter someone's username to see the results</h2>)
             }
         </>
     );

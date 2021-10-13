@@ -1,0 +1,11 @@
+.common-button {
+    background-color: var(--blue);
+    border-radius: 5px;
+    color: white;
+    margin: 0.5em;
+}
+
+.common-button:disabled {
+    background-color: var(--grey);
+    color: var(--dark-grey);
+}
