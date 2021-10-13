@@ -1,8 +1,9 @@
 import React from 'react';
+import "./FileContent.css"
 
 function FileContent({content}) {
     return (
-        <div>{content}</div>
+        <code>{content}</code>
     );
 }
 

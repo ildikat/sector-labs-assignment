@@ -3,9 +3,10 @@ import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {updateGists} from "../reducers/gistSlice";
 import {fetchAllGists} from "../reducers/fetchGists";
+import "./SearchBar.css";
 
 function SearchBar() {
-    const [userName, setUserName] = useState("ildikat");
+    const [userName, setUserName] = useState("");
     const [submitClicked, setSubmitClicked] = useState(false);
     const dispatch = useDispatch();
     useEffect(()=> {
@@ -19,10 +20,10 @@ function SearchBar() {
     }
 
     return (
-        <form className={"solid-border"}>
-            <label htmlFor="username">Username:</label><br/>
+        <form className={"search-container"}>
+            <label htmlFor="username">Enter a GitHUb username:</label><br/>
             <input onChange={(e) => setUserName(e.target.value)} type="text" id="username" name="username"
-                   placeholder="Search username gists..." value={userName}/>
+                   placeholder="Username..." value={userName}/>
             <button onClick={(e) => handleSearchClick(e, userName)}>
                 Search
             </button>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import User from "./User";
 import {fetchForked} from "../reducers/fetchGists";
-
+import "./ForksContainer.css";
 // need to make a call to: https://api.github.com/gists/{GIST_ID}/forks?per_page=3
 // const FORKS = [];
 
@@ -24,8 +24,8 @@ function ForksContainer({gistId}) {
 
     return (
         <div>
-            <h2>Users who forked it</h2>
-            <div>
+            <h2 className={"users-header"}>Users who forked it</h2>
+            <div className={"user-container"}>
                 {getUserElements(getUserObject(forkedUsersList))}
             </div>
         </div>

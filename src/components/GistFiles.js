@@ -3,36 +3,43 @@ import GistFile from "./GistFile";
 import FileContent from "./FileContent";
 import {useState} from "react";
 import {fetchFileContents} from "../reducers/fetchGists";
+import "./GistFiles.css"
 
-const getGistFiles = (gistFileObj) =>{
+const getGistFiles = (gistFileObj) => {
     let keys = Object.keys(gistFileObj);
     return keys.map(file => {
         let {filename, language, raw_url} = gistFileObj[file]
-        return { filename, language, raw_url};
-    } );
+        return {filename, language, raw_url};
+    });
 }
 
 const getGistFileComponents = (gistFileObj, handleClickedFile) => {
     return getGistFiles(gistFileObj).map(element =>
-        <GistFile onClick={()=>handleClickedFile(element)} key={element.filename} {...element}/>
+        <GistFile onClick={() => handleClickedFile(element)} key={element.filename} {...element}/>
     );
 }
 
 function GistFiles({gistFileObj}) {
-    const [selectedFileContent, setSelectedFileContent] = useState();
-    const handleClickedFile = (element) =>{
-        fetchFileContents(element.raw_url, response => setSelectedFileContent(response));
+    const [selectedFileContent, setSelectedFileContent] = useState("");
+    const [selectedFileName, setSelectedFileName] = useState("");
+    const handleClickedFile = (element) => {
+        fetchFileContents(element.raw_url, response => {
+            setSelectedFileName(element.filename);
+            setSelectedFileContent(response);
+        });
     }
     return (
         <div>
-            <h2>Displayed files</h2>
-            <div>
+            <h2>Contained files:</h2>
+            <div className={"files-container"}>
                 {getGistFileComponents(gistFileObj, handleClickedFile)}
             </div>
-            <div>
-                <h4>Selected file content:</h4>
-                <FileContent content={selectedFileContent} />
-            </div>
+            {(selectedFileName.length === 0)
+                ? (<h4>Click on a file to see it's content</h4>)
+                : (<div>
+                    <h4>{selectedFileName}'s content:</h4>
+                    <FileContent content={selectedFileContent}/>
+                </div>)}
         </div>
     );
 }

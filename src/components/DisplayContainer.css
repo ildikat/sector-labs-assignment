@@ -1,0 +1,9 @@
+.display-container{
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.list-element{
+    padding: 2em;
+}

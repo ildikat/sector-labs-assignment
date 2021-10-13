@@ -1,0 +1,9 @@
+.files-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.code-container{
+    background-color: var(--pale-yellow);
+}

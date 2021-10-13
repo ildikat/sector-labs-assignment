@@ -13,12 +13,10 @@ const getGistListElement = (gistsList) => gistsList.map(element =>
 
 function GistListContainer() {
     const gistsList = useSelector(gists);
-
     return (
-        <div className={"solid-border"}>
-            <h3>All gists</h3>
+        <>
             {getGistListElement(gistsList)}
-        </div>
+        </>
     )}
 
 export default GistListContainer;

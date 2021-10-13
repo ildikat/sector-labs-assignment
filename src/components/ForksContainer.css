@@ -1,0 +1,8 @@
+.user-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.users-header{
+    /*text-align: center;*/
+}
