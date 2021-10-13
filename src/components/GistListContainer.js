@@ -7,13 +7,12 @@ import {gists} from "../reducers/gistSlice";
 const getGistListElement = (gistsList) => gistsList.map(element =>
     <div className={"solid-border"} key={element.id}>
         <GistFiles gistFileObj={element.files}/>
-        <ForksContainer/>
+        <ForksContainer gistId={element.id}/>
     </div>
 );
 
 function GistListContainer() {
     const gistsList = useSelector(gists);
-    console.log("huuuh?",gistsList)
 
     return (
         <div className={"solid-border"}>

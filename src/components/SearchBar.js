@@ -1,17 +1,16 @@
 import {changeUsername} from "../reducers/searchedUsernameSlice";
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {updateGists} from "../reducers/gistSlice";
+import {fetchAllGists} from "../reducers/fetchGists";
 
 function SearchBar() {
     const [userName, setUserName] = useState("ildikat");
     const [submitClicked, setSubmitClicked] = useState(false);
     const dispatch = useDispatch();
-    useEffect(async () => {
-        const result = await axios.get(`https://api.github.com/users/${userName}/gists`);
-        dispatch(updateGists(result.data));
-    },[submitClicked]);
+    useEffect(()=> {
+        fetchAllGists(userName, result => dispatch(updateGists(result)));
+    },[submitClicked, userName, dispatch]);
 
     const handleSearchClick = (e, newUsername) => {
         e.preventDefault();

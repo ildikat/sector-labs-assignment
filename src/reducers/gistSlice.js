@@ -7,7 +7,6 @@ export const gistSlice = createSlice({
     },
     reducers: {
         updateGists: (state, newGists) => {
-            console.log("UPDATED", newGists )
             state.value = newGists.payload;
         }
     }
