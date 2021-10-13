@@ -4,7 +4,8 @@ This project was created with [Create React App](https://github.com/facebook/cre
 
 THe project uses Bootstrap for the Badges of the file language.
 
-The API has a number of maximum calls. Sadly I exceeded them and couldn't be sure of all the data anymore.
+The Github API has a number of maximum calls per hour. This requires attention, as I exceeded this number while testing. The application should be more careful with the calls.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -20,10 +21,4 @@ You will also see any lint errors in the console.
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
