@@ -1,13 +1,15 @@
 import axios from "axios";
-import {FORKED_USERS, GISTS, TESTING} from "../components/constants";
+import {FORKED_USERS, GISTS, TESTING} from "../constants";
 let counter = 0;
+
+const API_URL = "https://api.github.com";
 export const fetchAllGists = (userName, callback, errorCallback) => {
     if (TESTING) {
         counter++;
         console.log(counter);
         callback(GISTS);
     } else {
-        axios.get(`https://api.github.com/users/${userName}/gists`)
+        axios.get(`${API_URL}/users/${userName}/gists`)
             .then(res => callback(res.data))
             .catch(err => console.log(err)
         )
@@ -28,7 +30,7 @@ export const fetchForked = (id, callback) => {
         callback(FORKED_USERS);
 
     } else {
-        axios.get(`https://api.github.com/gists/${id}/forks?per_page=3`)
+        axios.get(`${API_URL}/gists/${id}/forks?per_page=3`)
             .then(res => {
                 callback(res.data)
                 counter++;
