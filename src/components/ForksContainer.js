@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import User from "./User";
 import {fetchForked} from "../utils/fetchGists";
 import "./ForksContainer.css";
-// need to make a call to: https://api.github.com/gists/{GIST_ID}/forks?per_page=3
-// const FORKS = [];
 
 const getUserElements = (users) => {
     return users.map((user, id) => <User key={`${user.id}-${id}`} avatar_url={user.avatar_url} username={user.login}/>);

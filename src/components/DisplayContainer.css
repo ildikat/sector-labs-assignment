@@ -1,24 +1,24 @@
-.display-container{
+.display-container {
     display: flex;
     flex-direction: column;
     margin: 1em;
 }
 
-.list-element{
+.list-element {
     padding: 0.5em;
 }
 
-.button-container{
+.button-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-button:disabled{
-   background-color: var(--grey);
+button:disabled {
+    background-color: var(--grey);
     color: var(--dark-grey);
 }
 
-button{
+button {
     background-color: var(--blue);
 }

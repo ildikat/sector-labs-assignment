@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import GistFile from "./GistFile";
 import FileContent from "./FileContent";
-import {useState} from "react";
 import {fetchFileContents} from "../utils/fetchGists";
 import "./GistFiles.css"
 
@@ -22,11 +21,18 @@ const getGistFileComponents = (gistFileObj, handleClickedFile) => {
 function GistFiles({gistFileObj}) {
     const [selectedFileContent, setSelectedFileContent] = useState("");
     const [selectedFileName, setSelectedFileName] = useState("");
+
     const handleClickedFile = (element) => {
-        fetchFileContents(element.raw_url, response => {
-            setSelectedFileName(element.filename);
-            setSelectedFileContent(response);
-        });
+        if (element.filename === selectedFileName) {
+            setSelectedFileName("");
+            setSelectedFileContent("");
+        } else {
+            fetchFileContents(element.raw_url, response => {
+                setSelectedFileName(element.filename);
+                setSelectedFileContent(response);
+            });
+        }
+
     }
     return (
         <div>
@@ -35,7 +41,7 @@ function GistFiles({gistFileObj}) {
                 {getGistFileComponents(gistFileObj, handleClickedFile)}
             </div>
             {(selectedFileName.length === 0)
-                ? (<p>Click on a file to see it's content</p>)
+                ? (<p className={"description"}>Click on a file to see it's content</p>)
                 : (<div>
                     <h4>{selectedFileName}'s content:</h4>
                     <FileContent content={selectedFileContent}/>
