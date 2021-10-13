@@ -2,6 +2,7 @@ import React from 'react';
 import GistFile from "./GistFile";
 import FileContent from "./FileContent";
 import {useState} from "react";
+import {fetchFileContents} from "../reducers/fetchGists";
 
 //gistsList all of the gist, has {files: {"test1.js": "" , test2.py":""}
 
@@ -20,10 +21,9 @@ const getGistFileComponents = (gistFileObj, handleClickedFile) => {
 }
 
 function GistFiles({gistFileObj}) {
-    const [selectedFile, setSelectedFile] = useState();
-
+    const [selectedFileContent, setSelectedFileContent] = useState();
     const handleClickedFile = (element) =>{
-        setSelectedFile(element);
+        fetchFileContents(element.raw_url, response => setSelectedFileContent(response));
     }
     return (
         <div>
@@ -33,7 +33,7 @@ function GistFiles({gistFileObj}) {
             </div>
             <div>
                 <h4>Selected file content:</h4>
-                <FileContent content={selectedFile} />
+                <FileContent content={selectedFileContent} />
             </div>
         </div>
     );

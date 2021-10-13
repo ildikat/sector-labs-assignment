@@ -250,3 +250,10 @@ export const fetchForked = (id, callback) => {
 //         .catch(err=>console.log("Fetch users who forked", err))
 // }
 
+export const fetchFileContents = (url, callback) =>{
+        axios.get(url)
+        .then(res =>{
+            callback(res.data)
+        })
+        .catch(err=>console.log(err))
+}
