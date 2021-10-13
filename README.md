@@ -3,6 +3,8 @@
 This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
 THe project uses Bootstrap for the Badges of the file language.
+
+The API has a number of maximum calls. Sadly I exceeded them and couldn't be sure of all the data anymore.
 ## Available Scripts
 
 In the project directory, you can run:
