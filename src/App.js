@@ -1,11 +1,12 @@
 import './App.css';
+import SearchBar from "./components/SearchBar";
+import DisplayContainer from "./components/DisplayContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hellow world
-      </header>
+    <div className="App solid-border">
+      <SearchBar />
+      <DisplayContainer />
     </div>
   );
 }
