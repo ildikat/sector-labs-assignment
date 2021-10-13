@@ -23,12 +23,12 @@ function ForksContainer({gistId}) {
     }, [gistId]);
 
     return (
-        <div>
+        (forkedUsersList.length === 0 ? ("") : <div>
             <h4 className={"users-header"}>Users who forked it:</h4>
             <div className={"user-container"}>
                 {getUserElements(getUserObject(forkedUsersList))}
             </div>
-        </div>
+        </div>)
     );
 }
 

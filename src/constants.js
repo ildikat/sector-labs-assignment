@@ -1,4 +1,6 @@
-export const TESTING = true;
+export const ITEMS_PER_PAGE =5;
+
+export const TESTING = false;
 
 export const  GISTS = [
     {

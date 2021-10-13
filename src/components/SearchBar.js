@@ -1,22 +1,18 @@
 import {changeUsername} from "../reducers/searchedUsernameSlice";
 import {useDispatch} from "react-redux";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {updateGists} from "../reducers/gistSlice";
 import {fetchAllGists} from "../reducers/fetchGists";
 import "./SearchBar.css";
 
 function SearchBar() {
     const [userName, setUserName] = useState("");
-    const [submitClicked, setSubmitClicked] = useState(false);
     const dispatch = useDispatch();
-    useEffect(()=> {
-        fetchAllGists(userName, result => dispatch(updateGists(result)));
-    },[submitClicked]);
 
     const handleSearchClick = (e, newUsername) => {
         e.preventDefault();
         dispatch(changeUsername(newUsername));
-        setSubmitClicked(prev=> !prev);
+        fetchAllGists(userName, result => dispatch(updateGists(result)));
     }
 
     return (
