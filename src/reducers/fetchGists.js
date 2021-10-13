@@ -3,7 +3,6 @@ import axios from "axios";
 export const fetchAllGists = (userName, callback, errorCallback) => {
     axios.get(`https://api.github.com/users/${userName}/gists`)
         .then(res => {
-                console.log(res.data);
                 callback(res.data);
             }
         ).catch(err =>
@@ -12,7 +11,7 @@ export const fetchAllGists = (userName, callback, errorCallback) => {
 };
 
 export const fetchForked = (id, callback) =>{
-    axios.get(`https://api.github.com/gists/${id}/forks`)
+    axios.get(`https://api.github.com/gists/${id}/forks?per_page=3`)
         .then(res =>{
             callback(res.data)
         })
