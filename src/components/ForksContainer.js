@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import User from "./User";
-import {fetchForked} from "../reducers/fetchGists";
+import {fetchForked} from "../utils/fetchGists";
 import "./ForksContainer.css";
 // need to make a call to: https://api.github.com/gists/{GIST_ID}/forks?per_page=3
 // const FORKS = [];

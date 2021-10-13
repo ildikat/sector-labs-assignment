@@ -2,7 +2,7 @@ import React from 'react';
 import GistFile from "./GistFile";
 import FileContent from "./FileContent";
 import {useState} from "react";
-import {fetchFileContents} from "../reducers/fetchGists";
+import {fetchFileContents} from "../utils/fetchGists";
 import "./GistFiles.css"
 
 const getGistFiles = (gistFileObj) => {

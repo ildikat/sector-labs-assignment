@@ -2,7 +2,7 @@ import {changeUsername} from "../reducers/searchedUsernameSlice";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 import {updateGists} from "../reducers/gistSlice";
-import {fetchAllGists} from "../reducers/fetchGists";
+import {fetchAllGists} from "../utils/fetchGists";
 import "./SearchBar.css";
 
 function SearchBar() {
