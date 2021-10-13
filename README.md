@@ -12,6 +12,8 @@ The application should minimize the calls to the GitHub API, because this affect
 
 Another problem encountered with the number of calls was when displaying the gists. With each gist the application needs to make a call to find out the last forks. Instead of showing all gists at once, a pagination was created where only 5 gists are displayed. The rest of the gists can be seen by navigating with two buttons: "prev" and "next". This minimizes the calls sent at once.
 
+If the multiple calls are a problem, the fetched data can be stored. The downfall for this is that if the data will be modified, the application will still work with the old stashed one.
+
 ## Available Scripts
 
 In the project directory, you can run:
